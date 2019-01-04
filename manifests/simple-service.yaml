@@ -1,8 +1,8 @@
+---
 apiVersion: v1
 kind: Namespace
 metadata:
   name: '${ parameters.namespace }'
-----
 ---
 apiVersion: v1
 kind: ConfigMap
