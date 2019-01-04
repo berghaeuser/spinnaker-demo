@@ -23,7 +23,7 @@ metadata:
     canary: "false"
     app: simple-service
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       stack: frontend
