@@ -1,14 +1,14 @@
----
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: staging
+  name: ${ parameters.namespace }
+----
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: frontend-config
-  namespace: staging
+  namespace: ${ parameters.namespace }
 data:
   NEW_FEATURE: "false"
 ---
@@ -16,7 +16,7 @@ apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: frontend-primary
-  namespace: staging
+  namespace: ${ parameters.namespace }
   labels:
     stack: frontend
     tier: staging
@@ -53,7 +53,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: frontend
-  namespace: staging
+  namespace:  ${ parameters.namespace }
 spec:
   selector:
     stack: frontend
@@ -68,7 +68,7 @@ apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: backend-primary
-  namespace: staging
+  namespace:  ${ parameters.namespace }
   labels:
     stack: backend
     tier: staging
@@ -102,7 +102,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: backend
-  namespace: staging
+  namespace:  ${ parameters.namespace }
 spec:
   selector:
     stack: backend
