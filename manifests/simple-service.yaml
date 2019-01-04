@@ -37,7 +37,7 @@ spec:
         canary: "false"
     spec:
       containers:
-      - name: primary
+      - name: frontend
         image: berghl/simple-frontend:0.0.1
         ports:
         - containerPort: 8081
